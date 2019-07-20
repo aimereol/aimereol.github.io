@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://aimereol.github.io</id>
     <title>maxinyu&apos;s note</title>
-    <updated>2019-06-16T08:20:06.348Z</updated>
+    <updated>2019-07-20T05:52:56.356Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="http://aimereol.github.io"/>
     <link rel="self" href="http://aimereol.github.io/atom.xml"/>
@@ -10,6 +10,59 @@
     <logo>http://aimereol.github.io/images/avatar.png</logo>
     <icon>http://aimereol.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, maxinyu&apos;s note</rights>
+    <entry>
+        <title type="html"><![CDATA[ 算法分析大作业]]></title>
+        <id>http://aimereol.github.io/post/suan-fa-fen-xi-da-zuo-ye</id>
+        <link href="http://aimereol.github.io/post/suan-fa-fen-xi-da-zuo-ye">
+        </link>
+        <updated>2019-06-16T08:24:08.000Z</updated>
+        <content type="html"><![CDATA[<p>第一题：计算数组的反转</p>
+<p>大致思路：</p>
+<ol>
+<li>首先是生成随机数</li>
+</ol>
+<pre><code>    void sj(int n, int *x)
+    {
+    	int t, k;
+    	int i;
+    	srand((unsigned)time(NULL));
+    	for (i = 0; i &lt; 200000; i++)
+    	{
+    		x[i].data = i;
+    	}
+    	for (i = 0; i &lt; n; i++)
+    	{
+    		t = rand() % (200000 - i);
+    		k = x[i].data;
+    		x[i].data = x[t].data;
+    		x[t].data = k;
+    	}
+    	cout &lt;&lt; &quot;随机数产生了&quot; &lt;&lt; endl;
+    }//生成随机数
+</code></pre>
+<ol start="2">
+<li>利用分治法：</li>
+</ol>
+<pre><code>    void sf(int *x,int left,int right,int &amp;fz)
+    {
+        int len=right-left;
+    	if(len&gt;1) 
+    	{
+    		sf(x,left,(left + right)/2,fz);
+    		sf(x,((left + right)/2)+1,right,fz);
+    	}
+    	sort(x, left, right, fz, len);
+    }//当分组长度小于等于2时开始合并排序，并计算反转
+</code></pre>
+<p>思路：</p>
+<ul>
+<li>若把数组分为左右两个有序分组</li>
+</ul>
+<ol start="3">
+<li>排序</li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>http://aimereol.github.io/post/hello-gridea</id>

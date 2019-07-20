@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Gridea | maxinyu&#39;s note</title>
+<title> 算法分析大作业 | maxinyu&#39;s note</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -91,35 +91,84 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: Gridea</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="http://aimereol.github.io/post/hello-gridea">
-                  <h2 class="post-title">Hello Gridea</h2>
-                </a>
-                <div class="post-date">
-                  2018-12-12
-                </div>
-                <div class="post-abstract">
-                  <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-
-                </div>
+          <div class="post-detail">
+            <h2 class="post-title"> 算法分析大作业</h2>
+            <div class="post-date">2019-06-16</div>
+            
+              <div class="feature-container" style="background-image: url('http://aimereol.github.io/post-images/suan-fa-fen-xi-da-zuo-ye.jpg')">
               </div>
-              
-                <a class="right" href="http://aimereol.github.io/post/hello-gridea">
-                  <div class="feature-container" style="background-image: url('http://aimereol.github.io/post-images/hello-gridea.png')">
-                  </div>
-                </a>
-              
-            </article>
-          
+            
+            <div class="post-content">
+              <p>第一题：计算数组的反转</p>
+<p>大致思路：</p>
+<ol>
+<li>首先是生成随机数</li>
+</ol>
+<pre><code>    void sj(int n, int *x)
+    {
+    	int t, k;
+    	int i;
+    	srand((unsigned)time(NULL));
+    	for (i = 0; i &lt; 200000; i++)
+    	{
+    		x[i].data = i;
+    	}
+    	for (i = 0; i &lt; n; i++)
+    	{
+    		t = rand() % (200000 - i);
+    		k = x[i].data;
+    		x[i].data = x[t].data;
+    		x[t].data = k;
+    	}
+    	cout &lt;&lt; &quot;随机数产生了&quot; &lt;&lt; endl;
+    }//生成随机数
+</code></pre>
+<ol start="2">
+<li>利用分治法：</li>
+</ol>
+<pre><code>    void sf(int *x,int left,int right,int &amp;fz)
+    {
+        int len=right-left;
+    	if(len&gt;1) 
+    	{
+    		sf(x,left,(left + right)/2,fz);
+    		sf(x,((left + right)/2)+1,right,fz);
+    	}
+    	sort(x, left, right, fz, len);
+    }//当分组长度小于等于2时开始合并排序，并计算反转
+</code></pre>
+<p>思路：</p>
+<ul>
+<li>若把数组分为左右两个有序分组</li>
+</ul>
+<ol start="3">
+<li>排序</li>
+</ol>
 
-          <div class="pagination-container">
-  
-  
-</div>
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="http://aimereol.github.io/tag/4QbmVFeRp" class="tag">
+                    笔记
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="http://aimereol.github.io/post/hello-gridea">
+                  <h3 class="post-title">
+                    Hello Gridea
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
 
         </div>
       </div>
